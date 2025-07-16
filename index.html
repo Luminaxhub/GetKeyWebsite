@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔑 LUMINA GETKEY</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #1a1a1a;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.1);
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .logo-section img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 12px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: bold;
+      animation: rgbText 4s linear infinite;
+    }
+
+    @keyframes rgbText {
+      0% { color: red; }
+      25% { color: orange; }
+      50% { color: lime; }
+      75% { color: cyan; }
+      100% { color: red; }
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      background-color: #222;
+      color: #00ffcc;
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #00ffd0;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00ccaa;
+    }
+
+    .note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #bbb;
+    }
+
+    .copied {
+      color: #00ff99;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-section">
+      <img src="IMG_20250713_002620_206.webp" alt="Logo">
+      <div class="logo-text">Luminaprojects</div>
+    </div>
+
+    <input type="text" id="keyField" value="LuminaKEY_f0WKFQSeLk" readonly />
+    <button onclick="copyKey()">📋 Copy Key</button>
+    <div id="copiedText" class="copied" style="display: none;">✅ Key copied!</div>
+
+    <p class="note">
+      Never store the original token on the client or frontend.<br/>
+      This script only displays the key for script roblox verification system.
+    </p>
+  </div>
+
+  <script>
+    function copyKey() {
+      const input = document.getElementById('keyField');
+      navigator.clipboard.writeText(input.value).then(function() {
+        document.getElementById('copiedText').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('copiedText').style.display = 'none';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
