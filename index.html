@@ -16,7 +16,6 @@
       align-items: center;
       min-height: 100vh;
     }
-
     .container {
       background: #1a1a1a;
       padding: 30px 40px;
@@ -26,14 +25,12 @@
       width: 90%;
       text-align: center;
     }
-
     .logo-section {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
     }
-
     .logo-section img {
       width: 50px;
       height: 50px;
@@ -41,13 +38,11 @@
       object-fit: cover;
       margin-right: 12px;
     }
-
     .logo-text {
       font-size: 18px;
       font-weight: bold;
       animation: rgbText 4s linear infinite;
     }
-
     @keyframes rgbText {
       0% { color: red; }
       25% { color: orange; }
@@ -55,7 +50,6 @@
       75% { color: cyan; }
       100% { color: red; }
     }
-
     input {
       width: 100%;
       padding: 12px;
@@ -67,7 +61,6 @@
       color: #00ffcc;
       text-align: center;
     }
-
     button {
       width: 100%;
       padding: 12px;
@@ -79,18 +72,16 @@
       font-weight: bold;
       cursor: pointer;
       transition: background 0.3s ease;
+      margin-bottom: 10px;
     }
-
     button:hover {
       background-color: #00ccaa;
     }
-
     .note {
       margin-top: 20px;
       font-size: 13px;
       color: #bbb;
     }
-
     .copied {
       color: #00ff99;
       font-size: 14px;
@@ -105,17 +96,29 @@
       <div class="logo-text">Luminaprojects</div>
     </div>
 
-    <input type="text" id="keyField" value="LuminaKEY_f0WKFQSeLk" readonly />
+    <input type="text" id="keyField" readonly />
+    <button onclick="generateKey()">🔄 Generate New Key</button>
     <button onclick="copyKey()">📋 Copy Key</button>
     <div id="copiedText" class="copied" style="display: none;">✅ Key copied!</div>
 
     <p class="note">
-      🇬🇧 THIS KEY IS FOR MY UI SCRIPT TOKEN KEY LOGIN.<br/>
-      🇷🇺 ЭТО КЛЮЧ К СОЗДАНИЮ МОЕГО ТОКЕНА UI-СКРИПТА ДЛЯ ВХОДА.
+      Never store the original token on the client or frontend.<br/>
+      This script only displays the key for script roblox verification system.
     </p>
   </div>
 
   <script>
+    function generateKey() {
+      const prefix = "LuminaKey_";
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let suffix = "";
+      for (let i = 0; i < 5; i++) {
+        suffix += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      document.getElementById("keyField").value = prefix + suffix;
+      document.getElementById("copiedText").style.display = "none";
+    }
+
     function copyKey() {
       const input = document.getElementById('keyField');
       navigator.clipboard.writeText(input.value).then(function() {
@@ -125,6 +128,9 @@
         }, 2000);
       });
     }
+
+    // Generate key on page load
+    window.onload = generateKey;
   </script>
 </body>
 </html>
