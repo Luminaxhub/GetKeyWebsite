@@ -101,34 +101,6 @@
       margin-top: 8px;
     }
 
-    /* Caption "No Bot" */
-    .nobot-caption {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: rgba(255, 0, 0, 0.1);
-      border: 1px solid red;
-      padding: 8px 18px;
-      font-weight: bold;
-      font-size: 14px;
-      color: #ff5555;
-      border-radius: 8px;
-      z-index: 9999;
-      animation: fadeSlideIn 1.5s ease forwards;
-    }
-
-    @keyframes fadeSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(-20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
-    }
-
     /* Snow background */
     .snow {
       position: fixed;
@@ -158,7 +130,6 @@
   </style>
 </head>
 <body>
-  <div class="nobot-caption">🚫 No Bot - Human Only</div>
   <div class="snow" id="snowContainer"></div>
 
   <div class="container">
@@ -167,12 +138,13 @@
       <div class="logo-text">Luminaprojects</div>
     </div>
 
-    <input type="text" id="keyField" readonly value="LuminaKEY_1IHMjYUDch1ScGj"/>
+    <input type="text" id="keyField" readonly value="LUMINAKEY"/>
     <button onclick="copyKey()">📋 Copy Key</button>
+    <button onclick="window.open('https://youtube.com/@Luminaprojects', '_blank')">🔗 Visit My YouTube</button>
     <div id="copiedText" class="copied" style="display: none;">✅ Key copied!</div>
 
     <p class="note">
-      Thank you for using my script!<br/>
+      Thank you for using my script.<br/>
       Спасибо за использование моего сценария.
     </p>
   </div>
@@ -206,5 +178,4 @@
     setInterval(createSnowflake, 100);
   </script>
 </body>
-    </html>
-    
+</html>
